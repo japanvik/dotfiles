@@ -16,6 +16,7 @@ call vundle#rc()
 "Plugin 'gmarik/vundle'
 
 Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
@@ -66,8 +67,8 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+"map <Leader>n <esc>:tabprevious<CR>
+"map <Leader>m <esc>:tabnext<CR>
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
@@ -88,7 +89,7 @@ color molokai
 
 " Syntax highlighting
 filetype plugin indent on
-"syntax on
+syntax on
 
 "set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -144,20 +145,15 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bd :bdelete<cr>
+
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
 
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+" Navigate through buffers
+:nnoremap <leader>m <esc>:bnext<CR>
+:nnoremap <leader>n <esc>:bprevious<CR>
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -167,8 +163,8 @@ set number  " show line numbers
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=242
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=242
 
 " absolute line numbers in insert mode, relative otherwise for easy movement
 au InsertEnter * :set nu
@@ -217,7 +213,7 @@ set noswapfile
 " ------------------------------
 
 " bling/vim-airline
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " enable/disable syntastic integration >
 let g:airline#extensions#syntastic#enabled = 1
 " enable/disable csv integration for displaying the current column. >
@@ -225,6 +221,13 @@ let g:airline#extensions#csv#enabled = 1
 " change how columns are displayed. >
 " let g:airline#extensions#csv#column_display = 'Number'
 let g:airline#extensions#csv#column_display = 'Name'
+" enable/disable bufferline integration >
+let g:airline#extensions#bufferline#enabled = 1
+" determine whether bufferline will overwrite customization variables >
+let g:airline#extensions#bufferline#overwrite_variables = 1
+" the symbol to denote that a buffer is modified
+let g:bufferline_modified = '*'
+
 set laststatus=2
 
 " kien/ctrlp.vim
