@@ -25,6 +25,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'csv.vim'
+Plugin 'pangloss/vim-javascript'
 
 " ------------------------------
 " General Settings
