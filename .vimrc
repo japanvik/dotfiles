@@ -48,7 +48,7 @@ let mapleader = ","
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>
+noremap <C-n> :nohl<CR>
 
 "Show matching brackets when text indicator is over them
 set showmatch
@@ -135,6 +135,8 @@ au! FileType javascript nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<
 " Autodetects for CSV files
 au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 
+" Autodetects for markdown files
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " ------------------------------
 " => Visual mode related
