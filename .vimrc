@@ -35,6 +35,7 @@ autocmd! bufwritepost .vimrc source %
 
 " Better copy & paste
 set clipboard=unnamed
+set paste
 
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
@@ -125,6 +126,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Remove smart indent for # for Python
 au! FileType python setl nosmartindent
+au! FileType python inoremap # X<C-H>#
 
 " Buffer execution for python
 au! FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
