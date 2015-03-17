@@ -212,7 +212,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
+" Enable hidden buffers so we don't have to save all the time.
+set hidden
 " ------------------------------
 "  Plugin Config
 " ------------------------------
