@@ -27,6 +27,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'csv.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mattn/emmet-vim'
 
 " ------------------------------
 " General Settings
