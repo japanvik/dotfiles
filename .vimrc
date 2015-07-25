@@ -29,6 +29,7 @@ Plugin 'csv.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'chrisgillis/vim-bootstrap3-snippets'
+Plugin 'chase/vim-ansible-yaml'
 
 " ------------------------------
 " General Settings
@@ -279,4 +280,6 @@ nmap <silent> <leader>l <Plug>(pydocstring)
 
 " Syntatstic
 
-
+" Ansible plugin
+" https://github.com/chase/vim-ansible-yaml
+let g:ansible_options = {'ignore_blank_lines': 0}
