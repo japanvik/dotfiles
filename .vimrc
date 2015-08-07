@@ -29,6 +29,7 @@ Plugin 'csv.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'digitaltoad/vim-jade.git'
 
 " ------------------------------
 " General Settings
