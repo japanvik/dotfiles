@@ -298,6 +298,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Adding custom snippets
 "let g:UltiSnipsSnippetDirectories = ['~/.vim/snips/angular-vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/site/snips']
 
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
