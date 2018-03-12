@@ -78,18 +78,21 @@ autocmd MyVimrc FileType javascript,javascript.jsx call EnableJavascript()
 
 " Yggdroot/indentLine settings
 let g:indentLine_char = '┆'
-let g:indentLine_color_term = 239
+"let g:indentLine_color_term = 239
 
 
 " ------------------------------
 " General Settings
 " ------------------------------
+" Path setting to go deep in the search
+" Might be better to use ctrlP?
+set path+=**
 
 " Color Scheme
+set termguicolors
 colorscheme gruvbox  "use the theme gruvbox
 set background=dark "use the light version of gruvbox
 let g:airline_theme='gruvbox'
-" color molokai
 
 " Syntax highlighting
 filetype plugin indent on
@@ -101,7 +104,6 @@ set encoding=utf8
 "Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
@@ -216,7 +218,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map <leader>bd :bdelete<cr>
 
 " Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
+map <leader>ba :% bd!<cr>
 
 " Navigate through buffers
 :nnoremap <leader>m <esc>:bnext<CR>
@@ -251,8 +253,6 @@ set shiftround
 set expandtab
 
 " Make search case insensitive
-set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 
@@ -295,10 +295,13 @@ set wildignore+=*/coverage/*
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" Adding pythonpath
+let g:python2_host_prog = '/Users/vikram.kumar/python/sandbox/bin/python'
 
 " Adding custom snippets
 "let g:UltiSnipsSnippetDirectories = ['~/.vim/snips/angular-vim-snippets/UltiSnips']
 let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/site/snips']
+
 
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
