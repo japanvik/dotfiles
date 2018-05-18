@@ -41,6 +41,7 @@ Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'tpope/repeat'
 
 " Functional extensions
 Plug 'kassio/neoterm'
