@@ -243,7 +243,10 @@ imap <C-j> <C-o>j
 imap <C-k> <C-o>k
 imap <C-l> <C-o>l
 
-" Useful settings
+" Terminal toggle Map to ESC so it's easire
+tnoremap <silent> <ESC> <C-\><C-n>
+
+"Useful settings
 set history=700
 set undolevels=700
 
