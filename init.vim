@@ -271,8 +271,10 @@ set hidden
 "  Plugin Config
 " ------------------------------
 
-" AuotPairs
+" AutoPairs
 let g:AutoPairsShortcutToggle = "<leader>p"
+let g:AutoPairsFlyMode = 1
+
 
 " Airline
 let g:airline#extensions#bufferline#enabled = 1
