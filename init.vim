@@ -42,6 +42,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'machakann/vim-highlightedyank'
 
 " Functional extensions
 Plug 'kassio/neoterm'
@@ -250,6 +251,8 @@ tnoremap <silent> <ESC> <C-\><C-n>
 "Useful settings
 set history=700
 set undolevels=700
+"Incommand
+set inccommand=nosplit
 
 " Use spaces instead of tabs
 set tabstop=4
