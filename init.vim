@@ -69,7 +69,7 @@ Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+"Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 
 call plug#end()
 
@@ -168,6 +168,13 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
+" Tag jumping
+" create tags files
+" use ^] to jump to tag under cursor
+" use g^] for ambiguous tags
+" use ^t to jump back up the tag stack
+command! MakeTags !ctags -R .
+
 " Nerdtree
 " <F4> => popup the file tree navigation)
 nmap <F4> :NERDTreeToggle<CR>
@@ -247,6 +254,9 @@ imap <C-l> <C-o>l
 
 " Terminal toggle Map to ESC so it's easire
 tnoremap <silent> <ESC> <C-\><C-n>
+
+" Map save
+map <C-s> :w<cr>
 
 "Useful settings
 set history=700
