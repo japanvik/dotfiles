@@ -261,6 +261,9 @@ map <C-s> :w<cr>
 "Useful settings
 set history=700
 set undolevels=700
+
+set ttimeoutlen=50
+
 "Incommand
 set inccommand=nosplit
 
@@ -284,6 +287,7 @@ set noswapfile
 " Enable hidden buffers so we don't have to save all the time.
 set hidden
 
+
 " ------------------------------
 "  Plugin Config
 " ------------------------------
@@ -294,19 +298,30 @@ let g:AutoPairsFlyMode = 1
 
 
 " Airline
+let g:airline_powerline_fonts = 1
+
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:bufferline_modified = '*'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
 set laststatus=2
+" Customize the layout
+let g:airline#extensions#default#layout = [
+	\ [ 'a', 'c' ],
+	\ [ 'x', 'y', 'b']
+	\ ]
+
+" Show time on b
+let g:airline_section_b = '%{strftime("%H:%M")}'
+
 
 " kien/ctrlp.vim
 let g:ctrlp_max_height = 10
 set wildignore+=*.pyc
-set wildignore+=*_build/*
+set wildignore+=*build/*
+set wildignore+=*public/*
 set wildignore+=*/coverage/*
 
 " SirVer/ultisnips
