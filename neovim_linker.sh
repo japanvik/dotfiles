@@ -2,6 +2,7 @@
 mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/init.vim ~/.config/nvim
 ln -sf ~/dotfiles/tern-project ~/.tern-project
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 #
 mkdir -p ~/.local/share/nvim/site/
 ln -sf ~/dotfiles/.vim/colors ~/.local/share/nvim/site/
