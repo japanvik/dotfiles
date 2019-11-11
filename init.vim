@@ -20,6 +20,8 @@ endfunction
 
 augroup MyVimrc
   autocmd!
+  " Create a fold for html tag
+  autocmd FileType html nnoremap <leader>f Vatzf
 augroup END
 
 " ------------------------------
@@ -140,18 +142,19 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
+" No annoying sound on errors
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+"""" Mappings
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 noremap <C-n> :nohl<CR>
-
-" No annoying sound on errors
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
 
 " bind Ctrl+<movement> keys to move around the windows
 map <c-j> <c-w>j
@@ -183,6 +186,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" ignore pyc files
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -201,7 +207,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+"noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Remove smart indent for # for Python
 au! FileType python setl nosmartindent
@@ -215,10 +221,6 @@ au! FileType javascript nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<
 
 " Autodetects for markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
-
-" ------------------------------
-" => Visual mode related
-" ------------------------------
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -252,11 +254,37 @@ imap <C-j> <C-o>j
 imap <C-k> <C-o>k
 imap <C-l> <C-o>l
 
-" Terminal toggle Map to ESC so it's easire
+" Terminal toggle Map to ESC so it's easier
 tnoremap <silent> <ESC> <C-\><C-n>
 
-" Map save
-map <C-s> :w<cr>
+" Save using ctr+s
+noremap <C-s> :w<cr>
+
+" Select inner word using space in normal mode
+nnoremap <space> viw
+
+" map vimrc editing to leader+ev and sv to source it
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" replace word with buffer
+nnoremap <leader>pw viwp
+
+" map esc to jk
+inoremap jk <esc>
+
+" map in( 'change inner of next parenthesis'
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap in" :<c-u>normal! f"vi"<cr>
+onoremap il" :<c-u>normal! F"vi"<cr>
+onoremap in' :<c-u>normal! f'vi'<cr>
+onoremap il' :<c-u>normal! F'vi'<cr>
+
+
+
 
 "Useful settings
 set history=700
@@ -294,8 +322,6 @@ set hidden
 
 " AutoPairs
 let g:AutoPairsShortcutToggle = "<leader>p"
-let g:AutoPairsFlyMode = 1
-
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -354,3 +380,6 @@ nmap <silent> <leader>l <Plug>(pydocstring)
 " Ansible plugin
 " https://github.com/chase/vim-ansible-yaml
 "let g:ansible_options = {'ignore_blank_lines': 0}
+""
+
+
