@@ -227,8 +227,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
-" Close the current buffer
-map <leader>bd :bdelete<cr>
+" Close the current buffer without killing the split screen
+" map <leader>bd :bdelete<cr>
+nmap <leader>bd :bprevious<CR>:bdelete #<CR>
 
 " Close all the buffers
 map <leader>ba :% bd!<cr>
