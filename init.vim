@@ -40,6 +40,10 @@ Plug 'ianks/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'jiangmiao/auto-pairs' " To check - not working?
 Plug 'ervandew/supertab'
+" ES2015 code snippets (Optional)
+Plug 'epilande/vim-es2015-snippets'
+" React code snippets
+Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
