@@ -1,4 +1,4 @@
-" ------------------------------
+" -----------------------------v
 " Vik's config for neovim
 " ------------------------------
 
@@ -40,11 +40,17 @@ Plug 'ianks/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'jiangmiao/auto-pairs' " To check - not working?
 Plug 'ervandew/supertab'
+" ES2015 code snippets (Optional)
+Plug 'epilande/vim-es2015-snippets'
+" React code snippets
+Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-highlightedyank'
+Plug 'dense-analysis/ale'
+
 
 " Functional extensions
 Plug 'kassio/neoterm'
@@ -70,6 +76,7 @@ Plug 'chrisgillis/vim-bootstrap3-snippets'
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'yuezk/vim-js' , { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 
@@ -343,6 +350,13 @@ let g:airline#extensions#default#layout = [
 " Show time on b
 let g:airline_section_b = '%{strftime("%H:%M")}'
 
+" show ALE status
+
+
+" deoplete
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
 
 " kien/ctrlp.vim
 let g:ctrlp_max_height = 10
@@ -381,6 +395,11 @@ nmap <silent> <leader>l <Plug>(pydocstring)
 " Ansible plugin
 " https://github.com/chase/vim-ansible-yaml
 "let g:ansible_options = {'ignore_blank_lines': 0}
+
+
+
 ""
 
-
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
