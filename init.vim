@@ -58,7 +58,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'rizzatti/dash.vim'
 
 " Python
-Plug 'zchee/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'heavenshell/vim-pydocstring'
 
 " HTML / CSS
@@ -118,7 +118,7 @@ let mapleader = ","
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-
+let g:deoplete#sources#jedi#show_docstring = 1
 " Better copy & paste
 set clipboard=unnamed
 "set paste
