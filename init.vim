@@ -85,7 +85,10 @@ call plug#end()
 " Initialization
 autocmd MyVimrc FileType javascript,javascript.jsx call EnableJavascript()
 
-" ------------------------------
+" YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+"------------------------------
 " View Settings
 " ------------------------------
 
@@ -125,6 +128,8 @@ let mapleader = ","
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
+let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#jedi#show_docstring = 1
 " Better copy & paste
 set clipboard=unnamed
@@ -373,7 +378,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Adding pythonpath
-let g:python2_host_prog = '/Users/vikram.kumar/python/sandbox/bin/python'
+let g:python2_host_prog = '/home/vkumar/miniconda3/bin/python'
 
 " Adding custom snippets
 "let g:UltiSnipsSnippetDirectories = ['~/.vim/snips/angular-vim-snippets/UltiSnips']
